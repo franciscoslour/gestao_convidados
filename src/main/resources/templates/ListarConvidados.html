@@ -21,7 +21,7 @@
 			<h1 class="panel-title">Lista de convidados</h1>
         </div>
 
-        <form class="form-inline" method="POST"  style="margin: 20px 0;" th:object="${convidado}">
+        <form class="form-inline" method="POST" th:action="@{/convidados/salvar}" style="margin: 20px 0;" th:object="${convidado}">
             <div class="form-row align-items-center">
                 <div class="col-auto">
                   <label class="sr-only" for="inlineFormInput">Nome</label>
