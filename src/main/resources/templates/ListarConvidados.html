@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Convidados</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}">
+</head>
+
+<body>
+
+	<div class="panel panel-default" style="margin: 50px">
+
+		<div class="panel-heading">
+			<h1 class="panel-title">Lista de convidados</h1>
+        </div>
+
+        <form class="form-inline" method="POST"  style="margin: 20px 0;" th:object="${convidado}">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInput">Nome</label>
+                  <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Nome" th:field="*{nome}">
+                </div>
+
+                <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInput">Núemero do bilhete</label>
+                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Número do bilhete" th:field="*{numeroBilheteDeIdentidade}">
+                </div>
+
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-2">Adcionar</button>
+                </div>
+                
+            </div>
+        </form>
+
+		<div class="panel-body">
+			<table class="table">
+
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Número do Bilhete</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="convidado : ${convidados}">
+						<td th:text="${convidado.nome}"></td>
+						<td th:text="${convidado.numeroBilheteDeIdentidade}"></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+
+
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/jquery/bootstrap.min.js}"></script>
+</body>
+
+</html>
