@@ -1,1 +1,1 @@
-"# gestao_convidados" 
+Um simples programa que permite cadastrar os convidados
